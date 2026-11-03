@@ -23,3 +23,19 @@ bash chunk. R chunks run from the top of the repository.
 -->
 
 Taxonomic classification of the most complete bins with GTDB-Tk. Commands for this step were run in `gtdbtk/`.
+# Step 6: Perform taxonomic classification with gtdbtk
+
+Change directory
+```{bash}
+cd ~/bbd-metagenome/gtdbtk
+```
+
+```{bash}
+
+```
+
+
+
+
+
+
