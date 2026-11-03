@@ -23,3 +23,63 @@ bash chunk. R chunks run from the top of the repository.
 -->
 
 Completeness and contamination of each bin, estimated with CheckM, and selection of the most complete bins for further analysis. Commands for this step were run in `checkm/`.
+
+# Step 4: Check bin quality with checkm
+
+Now run checkm on the bins created by metabat. Take notes on this step and on step 5 in 03_bin_quality.Rmd.
+
+
+Change directory 
+```{bash}
+cd ~/bbd-metagenome/checkm
+```
+
+Sort contig lengths shortest to longest
+You will need to find the number of your largest contig in the bbd assembly. We need to manually add this contig because it usually isn’t included in the bins from metabat.
+This command will display the lengths of all contigs sorted from shortest to longest.
+```{bash}
+cat ../flye/bbd/assembly.fasta | bioawk -c fastx '{print length($seq),$name}' | sort -n
+```
+
+Once you have found the longest contig substitute its name instead of contig_XX in the code below. The first command saves your longest contig as a bin of its own, in the same folder as the metabat bins, so that all the later steps treat it just like the other bins. The second command copies all of the bins, including your longest contig, into the bins_bbd folder inside checkm.
+```{bash}
+samtools faidx ../flye/bbd/assembly.fasta contig_XX > ../metabat/bins_bbd/contig_XX.fa
+cp ../metabat/bins_bbd/*.fa bins_bbd/
+```
+
+Slurm script
+```{bash}
+sbatch run_checkm_bbd.sh #job 
+squeue # check position in que
+tail -f slurm-xxx.out #track jobs
+```
+
+Link prepared results into project
+```{bash}
+cd ~/bbd-metagenome/flye
+ln -s /pvol/data/mg/bbd/flye/bbd .
+
+cd ../metabat
+ln -s /pvol/data/mg/bbd/metabat/bins_bbd .
+
+cd ../checkm
+cp /pvol/data/mg/bbd/checkm/checkm_results_bbd.txt .
+
+cd ..
+```
+
+# Step 5: Select bins based on checkm results
+Change directory 
+```{bash}
+cd ~/bbd-metagenome/checkm
+head checkm_results_bbd.txt #summarise results
+```
+
+```{bash}
+
+```
+
+```{bash}
+
+```
+

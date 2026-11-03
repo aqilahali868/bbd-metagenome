@@ -23,3 +23,28 @@ bash chunk. R chunks run from the top of the repository.
 -->
 
 Binning of the assembled contigs into genomes with MetaBAT 2. Commands for this step were run in `metabat/`.
+# Step 3: Binning with metabat
+
+After your flye assembly has run you should perform binning with metabat. Take notes on this step in 02_binning.Rmd.
+
+Change directory 
+```{bash}
+cd ~/bbd-metagenome/metabat
+```
+
+Extract depth information
+```{bash}
+cat ../flye/bbd/assembly_info.txt  | grep -v '#' | awk '{OFS="\t";print $1,$3}' > depths_bbd.txt
+```
+
+Reirder contigs based in depth 
+```{bash}
+cat depths_bbd.txt | awk '{print $1}' | xargs samtools faidx ../flye/bbd/assembly.fasta > assembly_bbd_ordered.fasta
+```
+
+Run metabat
+```{bash}
+metabat2 -i assembly_bbd_ordered.fasta -a depths_bbd.txt --cvExt -o bins_bbd/metabat --seed 5
+```
+
+

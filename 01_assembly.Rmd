@@ -1,6 +1,6 @@
 ---
 title: "BBD Metagenome: Assembly"
-author: "Your Name"
+author: "Aqiah Ali"
 date: "`r Sys.Date()`"
 output:
   github_document:
@@ -21,5 +21,29 @@ knitr::opts_hooks$set(engine = function(options) {
 Explain what this step does and why, and copy each command you ran into a
 bash chunk. R chunks run from the top of the repository.
 -->
+# Step 2: Assembly
 
 Assembly of the BBD nanopore reads with Flye. Commands for this step were run in `flye/`.
+Change directory to flye
+```{bash}
+cd ~/bbd-metagenome/flye
+pwd
+ln -s /pvol/data/metagenome_assembly/bbd_0.1.fastq.gz .
+
+
+```
+
+Slurm script 
+```{bash}
+sbatch run_flye_bbd.sh #job 514
+squeue # check position in que
+tail -f slurm-514.out #track 
+```
+
+Check flye output
+```{bash}
+sacct -j 514 --format=JobID,State,MaxRSS,Elapsed
+
+ls -l bbd/assembly.fasta # finished assembly fasta.
+```
+

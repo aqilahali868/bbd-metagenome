@@ -2,8 +2,10 @@
 
 <!--
 This README is the front page of your repository on GitHub. Replace this
-template text with your own introduction. A few sentences is enough: what
-the data are, what you did with them and what you found.
+template text with your own introduction. A few sentences is enough: 
+what the data are - 
+what you did with them -  
+what you found - 
 -->
 
 Assembly, binning and functional analysis of a nanopore metagenome from black band disease (BBD) on the coral *Acropora hyacinthus*, done for [Workshop 4](https://mb5370.bioinformatics.guide/workshop4.html) of the MB5370 Marine Genomics module.
@@ -53,3 +55,18 @@ Notes on working in this repository (you can delete this once you've read it):
   folder. Reads, assemblies and bins are far too big for git. Never use
   git add -f to get around this.
 -->
+
+Functional Analysis of the BBD Metagenome
+
+In theory each of the bins from our metagenomic assembly corresponds to a species or strain forming part of the black band disease community. 
+These genomes are valuable resources that can be used to enhance analysis of other data such as RNA sequencing data. In addition (and relevant here), 
+they can be used to make deductions about the metabolic processes occurring within a black band disease lesion. 
+The full process of making these deductions involves quite a bit of biochemical knowledge, literature searching and cross referencing of outputs from many statistical tools. 
+Here we will focus on some preliminary analyses that reveal basic processes within the mat and that provide information on the genes and pathways present.
+
+The overall goal of functional analysis of metagenomes is to answer the following questions
+
+Who is there, or what taxonomic groups of microbes are present?
+What can they do? (what genes do they have and what biochemical pathways do these support)
+Our starting point for functional analysis is a bbd assembly on which we have already performed binning with MetaBat and a quality check with checkm (steps 1-4 above). 
+Files that you will need from these analysis and their expected locations are;
