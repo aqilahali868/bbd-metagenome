@@ -87,7 +87,7 @@ head checkm_results_bbd.txt #summarise results
 
 head -n 20 checkm_results_bbd.txt 
 ```
-Output; 
+Output; \ o__Cytophagales (UID2936) - heterotroph(bbd) and Roseofilum reptotaenium - coral killer (bbd), consider bbd map (more rare ones such as desulphobacteria can not be culteres  easily e.g., anaeribic, narrow nutrient requirments etc. ie., less known sequencing information to map genome with compares with cyano and heterotrphs)
 
   Bin Id                Marker lineage            # genomes   # markers   # marker sets    0     1    2   3   4   5+   Completeness   Contamination   Strain heterogeneity  
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

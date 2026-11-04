@@ -41,6 +41,26 @@ while read bin;do cp "../metabat/bins_bbd/${bin}.fa" genomes;done < ../checkm/bb
 ls genomes #check files in genomes 
 ```
 
+Classification 
+```{bash}
+sbatch run_gtdbtk.sh #job 535
+squeue #check position in cue
+tail -f slurm-535.out #track jobs
+
+#check status
+sacct -j 535 --format=JobID,State,MaxRSS,Elapsed
+
+```
+
+```{bash}
+#check output summary 
+ls -l out/gtdbtk.bac120.summary.tsv
+
+#add summary to repo
+cp out/gtdbtk.bac120.summary.tsv .
+# cp /pvol/data/mg/bbd/gtdbtk/out/gtdbtk.bac120.summary.tsv .  #for premade results 
+```
+
 
 
 

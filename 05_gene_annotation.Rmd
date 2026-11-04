@@ -23,3 +23,78 @@ bash chunk. R chunks run from the top of the repository.
 -->
 
 Gene prediction and annotation of the most complete bins with Prokka. Commands for this step were run in `prokka/`.
+
+# Step 7. Find and annotate genes with prokka
+Goal-  to use the BBD metagenome to improve our understanding of metabolic processes within the mat.Prokka will identify the gene sequences, it also uses a range of methods to identify homologous genes with known functions. If two genes share a common ancestor (ie are homologous) their functions are likely to be similar
+
+
+# Metabat 2
+```{basah}
+cd ~/bbd-metagenome/prokka
+
+cat ../checkm/bbd_topbins.txt #run for single bin 
+bin=metabat.2
+prokka --cpus 2 --outdir $bin --prefix $bin  ../metabat/bins_bbd/${bin}.fa 
+# --cpus 2: stops prokka from using more than two CPUs
+```
+**Cross reference results with those from checkm
+
+```{bash}
+#check output folder 
+ls metabat.2
+```
+
+Run prokka on metagenome
+Slurm script 
+```{bash}
+sbatch run_prokka.sh  #job xxx
+squeue #check position in cue
+tail -f slurm-551.out #track jobs
+
+#check status
+sacct -j 551 --format=JobID,State,MaxRSS,Elapsed
+```
+
+_____________________________________________________________________________
+# Contig 116 
+```{basah}
+cd ~/bbd-metagenome/prokka
+
+cat ../checkm/bbd_topbins.txt #run for single bin 
+bin=contig_116
+prokka --cpus 2 --outdir $bin --prefix $bin  ../metabat/bins_bbd/${bin}.fa 
+# --cpus 2: stops prokka from using more than two CPUs
+```
+**Cross reference results with those from checkm
+
+```{bash}
+#check output folder 
+ls contig_116
+```
+
+Run prokka on metagenome
+Slurm script 
+```{bash}
+sbatch run_prokka.sh  #job xxx
+squeue #check position in cue
+tail -f slurm-xxx.out #track jobs
+
+#check status
+sacct -j xxx --format=JobID,State,MaxRSS,Elapsed
+
+```
+_____________________________________________________________________________________________________
+Enter bins into R (prokka)
+```{r}
+contig116 <- read_tsv("prokka/contig_116/contig_116.tsv")
+metabat2 <- read_tsv("prokka/metabat.2/metabat.2.tsv")
+metabat6 <- read_tsv("prokka/metabat.6/metabat.6.tsv")
+metabat17 <- read_tsv("prokka/metabat.17/metabat.17.tsv")
+
+```
+
+
+```{bash}
+
+```
+
