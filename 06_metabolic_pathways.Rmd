@@ -143,3 +143,4 @@ Based on gtdbk Bacteria: Camplyobacterota / Arobacteraceae / Halacrobacter
 Both belong to the same family - Enterobacteriaceae???
 
 How strong is the evidence that these bins really have this pathway? Look at the fam-found and minpath columns.
+- fam found - 1 suggests it contains the pathway 
