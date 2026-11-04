@@ -24,7 +24,7 @@ bash chunk. R chunks run from the top of the repository.
 
 Metabolic pathways inferred from the Prokka annotations with MinPath. Commands for this step were run in `minpath/`.
 
-# Step 8: Infer metabolic pathways
+# Infer metabolic pathways
  
 ```{bash}
 cd ~/bbd-metagenome/minpath

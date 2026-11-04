@@ -47,7 +47,7 @@ Include bandage image of sequences (link image), figures with captions, plots (r
 
 # Processing Log
 
-# 1.Assembly
+## 1.Assembly
 
 ```{r, child = "01_assembly.Rmd"}
 ```

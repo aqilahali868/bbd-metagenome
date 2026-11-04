@@ -24,7 +24,7 @@ bash chunk. R chunks run from the top of the repository.
 
 Completeness and contamination of each bin, estimated with CheckM, and selection of the most complete bins for further analysis. Commands for this step were run in `checkm/`.
 
-# Step 4: Check bin quality with checkm
+# Check bin quality with checkm
 
 Now run checkm on the bins created by metabat. Take notes on this step and on step 5 in 03_bin_quality.Rmd.
 
@@ -58,7 +58,6 @@ tail -f slurm-528.out #track jobs
 sacct -j 528 --format=JobID,State,MaxRSS,Elapsed
 
 ```
-```
 
 Link prepared results into project
 ```{bash}
@@ -74,7 +73,7 @@ cp /pvol/data/mg/bbd/checkm/checkm_results_bbd.txt .
 cd ..
 ```
 
-# Step 5: Select bins based on checkm results
+# Select bins based on checkm results
 Change directory 
 ```{bash}
 cd ~/bbd-metagenome/checkm
