@@ -97,7 +97,7 @@ grep 'PWY-101' *.ec.report
 ```
 Output: 
 contig_116.ec.report:path PWY-101 any n/a  naive 1  minpath 0  fam0  4  fam-found  1  name  photosynthesis light reactions
-metabat.2.ec.report:path PWY-101 any n/a  naive 1  minpath 1  fam0  4  fam-found  4  name  photosynthesis light reactions
+metabat.2.ec.report: path PWY-101 any n/a  naive 1  minpath 1  fam0  4  fam-found  4  name  photosynthesis light reactions
 metabat.33.ec.report:path PWY-101 any n/a  naive 1  minpath 0  fam0  4  fam-found  1  name  photosynthesis light reactions
 metabat.71.ec.report:path PWY-101 any n/a  naive 1  minpath 1  fam0  4  fam-found  1  name  photosynthesis light reactions
 
