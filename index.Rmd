@@ -28,33 +28,54 @@ fix any errors there.
 
 If you add a step file, add a heading and a child chunk for it below.
 -->
+Inlcude notes for all steps in original .Rmd files
+e.g., summary of assembly stats / largest contigs / document what was does with explanation why (intended outcome)
+e.g., Fly was run with the slurm script, [run_flye_bbd.sh](flye/run_flye_bbd.sh) - links back to file
 
-# Assembly
+It ran for xx minutes and final assembly was then assessed to identify the longest contigs
+
+Include bandage image of sequences (link image), figures with captions, plots (relative abundance of metagenome,coverage depth, completeness)
+
+# Background
+ - on black band disease: cause, known facts, future research/limited knowledge, 
+
+# Results
+- most abundant and best assembled taxa in BBD metagenome were --- XX  and X
+
+# Discussion
+- understanding coral disease to improve conseration and resotration efforts
+
+# Processing Log
+
+# 1.Assembly
 
 ```{r, child = "01_assembly.Rmd"}
 ```
 
-# Binning
+# 2.Binning
 
 ```{r, child = "02_binning.Rmd"}
 ```
 
-# Bin quality
+# 3.Bin quality
 
 ```{r, child = "03_bin_quality.Rmd"}
 ```
 
-# Taxonomy
+# 4.Taxonomy
 
 ```{r, child = "04_taxonomy.Rmd"}
 ```
 
-# Gene annotation
+# 5.Gene annotation
 
 ```{r, child = "05_gene_annotation.Rmd"}
 ```
 
-# Metabolic pathways
+# 6.Metabolic pathways
 
 ```{r, child = "06_metabolic_pathways.Rmd"}
 ```
+
+# References
+

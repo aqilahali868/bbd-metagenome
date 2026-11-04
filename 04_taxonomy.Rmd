@@ -30,9 +30,17 @@ Change directory
 cd ~/bbd-metagenome/gtdbtk
 ```
 
+Copying results(topbins) into genome directory
 ```{bash}
+while read bin;do echo $bin;done < ../checkm/bbd_topbins.txt
 
+while read bin;do echo "../metabat/bins_bbd/${bin}.fa";done < ../checkm/bbd_topbins.txt
+
+while read bin;do cp "../metabat/bins_bbd/${bin}.fa" genomes;done < ../checkm/bbd_topbins.txt
+
+ls genomes #check files in genomes 
 ```
+
 
 
 
