@@ -1,6 +1,6 @@
 ---
 title: "BBD Metagenome: Gene Annotation"
-author: "Your Name"
+author: "Aqilah Ali"
 date: "`r Sys.Date()`"
 output:
   github_document:
@@ -24,11 +24,9 @@ bash chunk. R chunks run from the top of the repository.
 
 Gene prediction and annotation of the most complete bins with Prokka. Commands for this step were run in `prokka/`.
 
-# Find and annotate genes with prokka
 Goal-  to use the BBD metagenome to improve our understanding of metabolic processes within the mat.Prokka will identify the gene sequences, it also uses a range of methods to identify homologous genes with known functions. If two genes share a common ancestor (ie are homologous) their functions are likely to be similar
 
-
-# Metabat 2
+Metabat 2
 ```{bash}
 cd ~/bbd-metagenome/prokka
 

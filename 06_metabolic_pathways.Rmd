@@ -1,6 +1,6 @@
 ---
 title: "BBD Metagenome: Metabolic Pathways"
-author: "Your Name"
+author: "Aqilah Ali"
 date: "`r Sys.Date()`"
 output:
   github_document:
@@ -23,8 +23,6 @@ bash chunk. R chunks run from the top of the repository.
 -->
 
 Metabolic pathways inferred from the Prokka annotations with MinPath. Commands for this step were run in `minpath/`.
-
-# Infer metabolic pathways
  
 ```{bash}
 cd ~/bbd-metagenome/minpath
@@ -50,30 +48,14 @@ minpath -ec metabat.2.ec -report metabat.2.ec.report -details metabat.2.ec.detai
 head metabat.2.ec.report #output 
 ```
 
-### PWY-7321 (XX) 
-- which is a pathway identifier in the metacyc database. You can use this to lookup the full pathway. Eg PWY-7321
-### naive 1 
-- tells us that at least one gene from this pathway was found. Simply calling a pathway present whenever one of its genes is found is the “naive” approach (ignore*)
-### minpath 1 
-- tells us that minpath kept this pathway in its minimal set of pathways. If this says minpath 0 then minpath decided that the genes found are better explained by other pathways, so the evidence for this one is weak (0 - non neseccary to explain genes in organism, while it might still contain these genes)
-### fam0 4 
-- tells us that four gene families are involved in this pathway
-### fam-found 2 
-- tells us that we found 2 gene families from the pathway in this genome
-### name ecdysteroid metabolism (arthropods) 
-- is a name for the pathway
+PWY-7321 - a pathway identifier in the metacyc database. You can use this to lookup the full pathway. Eg PWY-7321
+naive 1 - tells us that at least one gene from this pathway was found. Simply calling a pathway present whenever one of its genes is found is the “naive” approach (ignore*)
+minpath 1 - tells us that minpath kept this pathway in its minimal set of pathways. If this says minpath 0 then minpath decided that the genes found are better explained by other pathways, so the evidence for this one is weak (0 - non necessary to explain genes in organism, while it might still contain these genes)
+fam0 4- tells us that four gene families are involved in this pathway
+fam-found 2 - tells us that we found 2 gene families from the pathway in this genome
+name ecdysteroid metabolism (arthropods) - is a name for the pathway
 
-Output:
-path PWY-7321 any n/a  naive 1  minpath 1  fam0  4  fam-found  2  name  ecdysteroid metabolism (arthropods)
-path PWY-5143 any n/a  naive 1  minpath 1  fam0  1  fam-found  1  name  long-chain fatty acid activation
-path PWY-5340 any n/a  naive 1  minpath 1  fam0  2  fam-found  2  name  sulfate activation for sulfonation
-path PWY-102 any n/a  naive 1  minpath 1  fam0  3  fam-found  1  name  gibberellin inactivation I (2beta-hydroxylation)
-path PWY-6477 any n/a  naive 1  minpath 0  fam0  3  fam-found  1  name  gibberellin inactivation II (methylation)
-path PWY-6546 any n/a  naive 1  minpath 0  fam0  4  fam-found  1  name  brassinosteroids inactivation
-path PWY-6297 any n/a  naive 1  minpath 1  fam0  1  fam-found  1  name  tuberonate glucoside biosynthesis
-path PWY-6303 any n/a  naive 1  minpath 1  fam0  2  fam-found  1  name  methyl indole-3-acetate interconversion
-path PWY-5083 any n/a  naive 1  minpath 0  fam0  3  fam-found  1  name  NAD(P)/NADPH interconversion
-path PWY-6972 any n/a  naive 1  minpath 1  fam0  3  fam-found  2  name  oleandomycin activation/inactivation
+Output Table:
 
 
 Prepare minpath for bins from prokka 
@@ -90,19 +72,15 @@ while read bin;do
 done < ../checkm/bbd_topbins.txt
 ```
 
-## PWY-101 photosynthesis light reactions 
+### PWY-101 
+(Photosynthesis light reactions)
 This pathway includes the essential components of photosynthesis that occur in light, Photosystem I and Photosystem II.
 ```{bash}
 grep 'PWY-101' *.ec.report
 ```
-Output: 
-contig_116.ec.report:path PWY-101 any n/a  naive 1  minpath 0  fam0  4  fam-found  1  name  photosynthesis light reactions
-metabat.2.ec.report: path PWY-101 any n/a  naive 1  minpath 1  fam0  4  fam-found  4  name  photosynthesis light reactions
-metabat.33.ec.report:path PWY-101 any n/a  naive 1  minpath 0  fam0  4  fam-found  1  name  photosynthesis light reactions
-metabat.71.ec.report:path PWY-101 any n/a  naive 1  minpath 1  fam0  4  fam-found  1  name  photosynthesis light reactions
+Output Table: contig_116.ec.report:path PWY-101 any n/a  naive 1  minpath 0  fam0  4  fam-found  1  name  photosynthesis light reactions
 
-
-## Question 4.1
+Question 4.1
 How many bins contain at least one gene from this pathway?
 - PWY-101 = 4 bins (contig_116, metabat:2,33,71)
 
@@ -114,7 +92,6 @@ For which bins does minpath keep the pathway (minpath 1)?
 
 *Cross reference your results with the output from gtdbtk to see the taxonomy of bins containing this pathway.*
 
-
 Note that you will need to modify the commands below to use the correct bin numbers (these will be different for everyone).
 
 ```{bash}
@@ -122,15 +99,15 @@ grep 'metabat.2' ../gtdbtk/gtdbtk.bac120.summary.tsv
 ```
 
 
-# PWY-5360 superpathway of tetrathionate reduction
+### PWY-5360 
+(Superpathway of tetrathionate reduction)
 This pathway is important because it includes enzymes required to reduce sulfite to hydrogen sulfide. Note that sulfite acts as the terminal electron acceptor in this pathway, however, in a broader sense the term “sulfate reducing” refers to micro-organisms that can produce sulfide from a range of oxidised sulfur compounds.
 
 ```{bash}
 grep 'PWY-5360' *.ec.report
 
 ```
-Output:
-metabat.6.ec.report:path PWY-5360 any n/a  naive 1  minpath 0  fam0  3  fam-found  1  name  superpathway of tetrathionate reduction (Salmonella typhimurium)
+Output:metabat.6.ec.report:path PWY-5360 any n/a  naive 1  minpath 0  fam0  3  fam-found  1  name  superpathway of tetrathionate reduction (Salmonella typhimurium)
 
 Question 4.2
 How many bins contain the pathway PWY-5360?

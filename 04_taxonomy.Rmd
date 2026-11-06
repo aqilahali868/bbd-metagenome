@@ -1,6 +1,6 @@
 ---
 title: "BBD Metagenome: Taxonomy"
-author: "Your Name"
+author: "Aqilah Ali"
 date: "`r Sys.Date()`"
 output:
   github_document:
@@ -23,7 +23,6 @@ bash chunk. R chunks run from the top of the repository.
 -->
 
 Taxonomic classification of the most complete bins with GTDB-Tk. Commands for this step were run in `gtdbtk/`.
-# Perform taxonomic classification with gtdbtk
 
 Change directory
 ```{bash}

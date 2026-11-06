@@ -1,6 +1,6 @@
 ---
 title: "BBD Metagenome: Bin Quality"
-author: "Your Name"
+author: "Aqilah Ali"
 date: "`r Sys.Date()`"
 output:
   github_document:
@@ -24,8 +24,6 @@ bash chunk. R chunks run from the top of the repository.
 
 Completeness and contamination of each bin, estimated with CheckM, and selection of the most complete bins for further analysis. Commands for this step were run in `checkm/`.
 
-# Check bin quality with checkm
-
 Now run checkm on the bins created by metabat. Take notes on this step and on step 5 in 03_bin_quality.Rmd.
 
 
@@ -42,7 +40,8 @@ cat ../flye/bbd/assembly.fasta | bioawk -c fastx '{print length($seq),$name}' | 
 ```
 
 Once you have found the longest contig substitute its name instead of contig_XX in the code below. The first command saves your longest contig as a bin of its own, in the same folder as the metabat bins, so that all the later steps treat it just like the other bins. The second command copies all of the bins, including your longest contig, into the bins_bbd folder inside checkm.
-# longest = 4706701 contig_116
+
+longest = 4706701 contig_116
 ```{bash}
 samtools faidx ../flye/bbd/assembly.fasta contig_116 > ../metabat/bins_bbd/contig_116.fa
 cp ../metabat/bins_bbd/*.fa bins_bbd/
@@ -73,8 +72,8 @@ cp /pvol/data/mg/bbd/checkm/checkm_results_bbd.txt .
 cd ..
 ```
 
-# Select bins based on checkm results
-Change directory 
+Select bins based on checkm results
+
 ```{bash}
 cd ~/bbd-metagenome/checkm
 
@@ -86,28 +85,10 @@ head checkm_results_bbd.txt #summarise results
 
 head -n 20 checkm_results_bbd.txt 
 ```
-Output; \ o__Cytophagales (UID2936) - heterotroph(bbd) and Roseofilum reptotaenium - coral killer (bbd), consider bbd map (more rare ones such as desulphobacteria can not be culteres  easily e.g., anaeribic, narrow nutrient requirments etc. ie., less known sequencing information to map genome with compares with cyano and heterotrphs)
 
-  Bin Id                Marker lineage            # genomes   # markers   # marker sets    0     1    2   3   4   5+   Completeness   Contamination   Strain heterogeneity  
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  contig_116       o__Cytophagales (UID2936)           47         454           336         9    438   7   0   0   0       97.62            1.64              14.29          
-  metabat.2       p__Cyanobacteria (UID2189)          82         579           450         11   565   3   0   0   0       97.56            0.67               0.00          
-  metabat.49      o__Clostridiales (UID1120)         304         247           141        164    79   4   0   0   0       37.59            1.77               0.00          
-  metabat.6         k__Bacteria (UID3060)            138         338           246        230   108   0   0   0   0       30.28            0.00               0.00          
-  metabat.45         k__Bacteria (UID203)            5449        104            58         85    19   0   0   0   0       29.31            0.00               0.00          
-  metabat.47   c__Deltaproteobacteria (UID3216)       83         247           155        169    77   1   0   0   0       28.18            0.13               0.00          
-  metabat.71      o__Clostridiales (UID1212)         172         263           149        198    65   0   0   0   0       22.60            0.00               0.00          
-  metabat.40         k__Bacteria (UID203)            5449        104            58         90    14   0   0   0   0       22.41            0.00               0.00          
-  metabat.35     p__Proteobacteria (UID3061)         115         395           260        289   106   0   0   0   0       21.64            0.00               0.00          
-  metabat.17         k__Bacteria (UID203)            5449        104            58         88    16   0   0   0   0       21.55            0.00               0.00          
-  metabat.33         k__Bacteria (UID203)            5449        102            56         87    15   0   0   0   0       21.43            0.00               0.00          
-  metabat.42        k__Bacteria (UID3060)            138         338           246        260    78   0   0   0   0       19.73            0.00               0.00          
-  metabat.59   c__Deltaproteobacteria (UID3216)       83         247           155        190    57   0   0   0   0       18.53            0.00               0.00          
-  metabat.1          k__Bacteria (UID203)            5449        103            57         91    12   0   0   0   0       17.54            0.00               0.00          
-  metabat.70         k__Bacteria (UID203)            5449        104            58         92    12   0   0   0   0       17.24            0.00               0.00          
-  metabat.56        s__algicola (UID2846)             47         571           303        447   124   0   0   0   0       15.73            0.00               0.00          
-  metabat.29   c__Deltaproteobacteria (UID3218)       61         284           169        239    45   0   0   0   0       14.53            0.00               0.00    
-  
+Output;  o__Cytophagales (UID2936) - heterotroph(bbd) and Roseofilum reptotaenium - coral killer (bbd), consider bbd map (more rare ones such as desulphobacteria can not be culteres  easily e.g., anaeribic, narrow nutrient requirments etc. ie., less known sequencing information to map genome with compares with cyano and heterotrphs)
+
+Output Table:
   
 In the analyses that follow we would like to focus on the* most complete bins * because these are likely to contain the majority of useful information on function within the bbd community. These bins will also usually correspond to the most abundant (and therefore best assembled) members of the community. Here we are just using the checkm completeness to assess these factors but **a more complete analysis might also look at the size of contigs within the bins and their read coverage.
 

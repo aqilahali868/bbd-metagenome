@@ -21,7 +21,6 @@ knitr::opts_hooks$set(engine = function(options) {
 Explain what this step does and why, and copy each command you ran into a
 bash chunk. R chunks run from the top of the repository.
 -->
-# Assembly
 
 Assembly of the BBD nanopore reads with Flye. Commands for this step were run in `flye/`.
 Change directory to flye
